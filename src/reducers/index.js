@@ -1,8 +1,10 @@
 import { combineReducers }  from 'redux'
 import videos               from './popular'
+import navigator            from './navigator'
 
 const rootReducer = combineReducers({
-  videos
+  videos,
+  navigator
 })
 
 export default rootReducer

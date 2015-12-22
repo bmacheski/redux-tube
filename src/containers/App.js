@@ -1,7 +1,9 @@
 import { connect } from 'react-redux'
+import VideosContainer      from './VideosContainer'
+import { fetchMostPopular } from '../actions'
 import React,
   { Component,
-  PropTypes }      from 'react'
+  PropTypes }               from 'react'
 
 class App extends Component {
   constructor(props) {
@@ -10,21 +12,31 @@ class App extends Component {
 
   componentDidMount() {
     const { dispatch } = this.props
+    dispatch(fetchMostPopular())
+  }
+
+  renderView() {
+    const { path } = this.props;
+    switch(path[0]) {
+      case 'videos':
+        return <VideosContainer />
+    }
   }
 
   render() {
+    const { items } = this.props
     return (
       <div>
-        <h1>Videos</h1>
+        {this.renderView()}
       </div>
     )
   }
 }
 
 function mapStateToProps(state) {
-  const { videos } = state;
+  const { navigator } = state;
   return {
-    videos
+    path: navigator.route.path
   }
 }
 
