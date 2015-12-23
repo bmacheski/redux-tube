@@ -1,7 +1,6 @@
-import Video    from './Video'
+import Video from './Video'
 import GridList from 'material-ui/lib/grid-list/grid-list'
-import React,
-  { PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 
 class Videos extends React.Component {
   render () {

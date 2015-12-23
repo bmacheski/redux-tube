@@ -1,9 +1,7 @@
 import { connect } from 'react-redux'
-import VideosContainer      from './VideosContainer'
-import { fetchMostPopular } from '../actions'
-import React,
-  { Component,
-  PropTypes }               from 'react'
+import VideosContainer from './VideosContainer'
+import { fetchMostPopular, fetchCategories } from '../actions'
+import React, { Component, PropTypes } from 'react'
 
 class App extends Component {
   constructor(props) {
@@ -12,6 +10,7 @@ class App extends Component {
 
   componentDidMount() {
     const { dispatch } = this.props
+    dispatch(fetchCategories())
     dispatch(fetchMostPopular())
   }
 

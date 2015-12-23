@@ -1,4 +1,4 @@
-import React    from 'react'
+import React from 'react'
 import GridTile from 'material-ui/lib/grid-list/grid-tile'
 
 class Video extends React.Component {
