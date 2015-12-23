@@ -14,8 +14,8 @@ class VideosContainer extends Component {
             text: item.snippet.title
           }
       }).sort((a, b) => {
+        if (a.text > b.text) return 1
         if (a.text < b.text) return -1
-        if (a.text < b.text) return 1
         else return 0
       })
     }
