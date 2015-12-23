@@ -37,8 +37,8 @@ class VideosContainer extends Component {
 
 function mapStateToProps(state) {
   const { videos, trendingCategories } = state
-  const { isFetching, items } = videos['trending'] || { isFetching: true, items: [] }
-  const { categoryItems } = trendingCategories['categories'] || { items: [] }
+  const { isFetching, items } = videos.trending || { isFetching: true, items: [] }
+  const { categoryItems } = trendingCategories.categories || { items: [] }
 
   return {
     items,
