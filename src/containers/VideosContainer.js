@@ -1,12 +1,14 @@
 import { connect } from 'react-redux'
+import React, { Component, PropTypes } from 'react'
 import Videos from '../components/Videos'
 import { fetchMostPopular } from '../actions'
-import React, { Component, PropTypes } from 'react'
 import LeftNav from 'material-ui/lib/left-nav'
+import TextField from 'material-ui/lib/text-field'
 
 class VideosContainer extends Component {
   render() {
     const { items, categoryItems } = this.props
+
     if (categoryItems) {
       var menuItems = categoryItems
         .map((item) => {
@@ -19,10 +21,16 @@ class VideosContainer extends Component {
         else return 0
       })
     }
+
+    let header = (
+      <TextField hintText="Search YouTube." />
+    )
+
     return (
       <div>
         <LeftNav
           ref="leftNav"
+          header={header}
           className="nav"
           menuItems={menuItems} />
         <main>
