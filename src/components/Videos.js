@@ -4,11 +4,13 @@ import React, { PropTypes } from 'react'
 
 class Videos extends React.Component {
   render () {
+    const { items }  = this.props
+
     return (
       <GridList
         cols={3}
         cellHeight={240}>
-        {this.props.items.map((post, i) =>
+        {items.map((post, i) =>
           <Video key= {i} post={post} />
         )}
       </GridList>
