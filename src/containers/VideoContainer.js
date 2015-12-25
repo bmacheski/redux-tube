@@ -6,12 +6,11 @@ import TextField from 'material-ui/lib/text-field'
 
 class VideoContainer extends Component {
   render() {
-    const { items } = this.props
+    const { videoId } = this.props
 
     let header = (
       <TextField hintText="Search YouTube." />
     )
-
     return (
       <div>
         <LeftNav
@@ -19,18 +18,22 @@ class VideoContainer extends Component {
           header={header}
           className="nav" />
         <main>
-            <WatchVideo />
+            <WatchVideo id={videoId} />
         </main>
       </div>
     )
   }
 }
 
+VideoContainer.propTypes = {
+  videoId: PropTypes.string.isRequired
+}
+
 function mapStateToProps(state) {
-  const { videos } = state
+  const videoId  = state.router.params.videoId
 
   return {
-    videos
+    videoId
   }
 }
 

@@ -15,7 +15,7 @@ function receiveMostPopular(json) {
 }
 
 export function fetchMostPopular() {
-  let mostPopularUrl = `${types.BASE_URL}videos?part=statistics,snippet,contentDetails&chart=mostPopular&key=${types.API_KEY}`
+  let mostPopularUrl = `${types.BASE_URL}videos?part=statistics,snippet,contentDetails&maxResults=9&chart=mostPopular&key=${types.API_KEY}`
   return dispatch => {
     dispatch(requestMostPopular())
     return fetch(mostPopularUrl)

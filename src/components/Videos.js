@@ -4,7 +4,7 @@ import React, { PropTypes } from 'react'
 
 class Videos extends React.Component {
   render () {
-    const { items }  = this.props
+    const { items } = this.props
 
     return (
       <GridList

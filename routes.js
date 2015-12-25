@@ -6,9 +6,9 @@ import { Route } from 'react-router'
 
 export default (
   <Route component={App}>
-      <Route path="/"
-        component={VideosContainer}/>
-      <Route path="video/:id"
-        component={VideoContainer}/>
+    <Route path="/"
+      component={VideosContainer}/>
+    <Route path="video/:videoId"
+      component={VideoContainer}/>
   </Route>
 )
