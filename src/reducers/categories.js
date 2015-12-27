@@ -15,7 +15,7 @@ function category(state = initialCategoryState, action) {
   }
 }
 
-export default function trendingCategories(state = initialCategoryState, action) {
+export default function categories(state = initialCategoryState, action) {
   switch (action.type) {
     case types.REQUEST_CATEGORIES:
       return Object.assign({}, state, {

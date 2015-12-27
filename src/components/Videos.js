@@ -3,17 +3,27 @@ import GridList from 'material-ui/lib/grid-list/grid-list'
 import React, { PropTypes } from 'react'
 
 class Videos extends React.Component {
+  renderVideos() {
+    const { category, videos, trendingVideos } = this.props
+    const items = category in trendingVideos ? trendingVideos[category].items : []
+
+    let result = items.map((videoId, i) => {
+      const video = videos[videoId]
+      return  <Video key={i} video={video} />
+    })
+    return result
+  }
   render () {
-    const { items } = this.props
+    let video = this.renderVideos()
 
     return (
+      <div>
       <GridList
         cols={3}
         cellHeight={240}>
-        {items.map((post, i) =>
-          <Video key= {i} post={post} />
-        )}
+        {video}
       </GridList>
+      </div>
     )
   }
 }

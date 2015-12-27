@@ -5,31 +5,31 @@ const initialTrendingState = {
   items: []
 }
 
-function video(state = initialTrendingState, action) {
+function trendingVideo(state = initialTrendingState, action) {
   switch (action.type) {
-    case types.REQUEST_MOST_POPULAR:
+    case types.REQUEST_TRENDING:
       return Object.assign({}, state, {
         isFetching: true
       })
-    case types.RECEIVE_MOST_POPULAR:
+    case types.RECEIVE_TRENDING:
       return Object.assign({}, state, {
         isFetching: false,
-        items: action.videos
+        items: [...state.items, ...action.trending]
       })
     default:
       return state
   }
 }
 
-export default function videos(state = {}, action) {
+export default function trendingVideos(state = {}, action) {
   switch (action.type) {
-    case types.REQUEST_MOST_POPULAR:
+    case types.REQUEST_TRENDING:
       return Object.assign({}, state, {
-        trending: video(state[action.videos], action)
-      });
-    case types.RECEIVE_MOST_POPULAR:
+        [action.category]: trendingVideo(state[action.category], action)
+      })
+    case types.RECEIVE_TRENDING:
       return Object.assign({}, state, {
-        trending: video(state[action.videos], action)
+        [action.category]: trendingVideo(state[action.category], action)
       })
     default:
       return state

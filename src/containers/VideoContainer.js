@@ -15,7 +15,6 @@ class VideoContainer extends Component {
       <div>
         <LeftNav
           ref="leftNav"
-          header={header}
           className="nav" />
         <main>
             <WatchVideo id={videoId} />

@@ -4,12 +4,12 @@ import { Link } from 'react-router'
 
 class Video extends React.Component {
   render () {
-    const { post } = this.props;
+    const { video } = this.props;
 
     return (
-      <Link to={`/video/${post.id}`}>
+      <Link to={`/video/${video.id}`}>
         <GridTile>
-          <img src={post.snippet.thumbnails.high.url}/>
+          <img src={video.snippet.thumbnails.high.url}/>
         </GridTile>
       </Link>
     )
