@@ -21,7 +21,8 @@ class VideosContainer extends Component {
         if (a.category > b.category) return 1
         if (a.category < b.category) return -1
         else return 0
-      }).map((item) => {
+      })
+      .map((item) => {
       return <MenuItem primaryText={item.category} key={item.id}></MenuItem>
     })
 

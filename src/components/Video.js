@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { Component, PropTypes } from 'react'
 import GridTile from 'material-ui/lib/grid-list/grid-tile'
 import { Link } from 'react-router'
 
-class Video extends React.Component {
+class Video extends Component {
   render () {
     const { video } = this.props;
 
@@ -15,5 +15,10 @@ class Video extends React.Component {
     )
   }
 }
+
+Video.PropTypes = {
+  video: PropTypes.object.isRequired
+}
+
 
 export default Video

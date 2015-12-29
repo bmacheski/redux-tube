@@ -3,19 +3,19 @@ import React, { Component, PropTypes } from 'react'
 import LeftNav from 'material-ui/lib/left-nav'
 import WatchVideo from '../components/WatchVideo'
 import TextField from 'material-ui/lib/text-field'
+import MenuItem from 'material-ui/lib/menus/menu-item'
 
 class VideoContainer extends Component {
   render() {
-    const { videoId } = this.props
-
-    let header = (
-      <TextField hintText="Search YouTube." />
-    )
+    const { videoId, videos } = this.props
+    const video = videos[videoId]
+    console.log(video)
     return (
       <div>
-        <LeftNav
-          ref="leftNav"
-          className="nav" />
+        <LeftNav>
+          <h1>{video.snippet.title}</h1>
+          <h3>Views: {video.statistics.viewCount}</h3>
+        </LeftNav>
         <main>
             <WatchVideo id={videoId} />
         </main>
@@ -24,14 +24,13 @@ class VideoContainer extends Component {
   }
 }
 
-VideoContainer.propTypes = {
-  videoId: PropTypes.string.isRequired
-}
-
 function mapStateToProps(state) {
-  const videoId  = state.router.params.videoId
+  const { entities } = state
+  const videoId = state.router.params.videoId
+
 
   return {
+    videos: entities.videos,
     videoId
   }
 }

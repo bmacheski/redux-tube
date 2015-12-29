@@ -1,8 +1,8 @@
 import Video from './Video'
 import GridList from 'material-ui/lib/grid-list/grid-list'
-import React, { PropTypes } from 'react'
+import React, { PropTypes, Component } from 'react'
 
-class Videos extends React.Component {
+class Videos extends Component {
   renderVideos() {
     const { category, videos, trendingVideos } = this.props
     const items = category in trendingVideos ? trendingVideos[category].items : []

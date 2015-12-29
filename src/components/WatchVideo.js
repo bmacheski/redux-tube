@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { Component, PropTypes } from 'react'
 import YouTube from 'react-youtube'
 
-export default class Video extends React.Component {
+class WatchVideo extends Component {
   render () {
     const { id } = this.props
     const opts = {
@@ -18,3 +18,9 @@ export default class Video extends React.Component {
     )
   }
 }
+
+WatchVideo.PropTypes = {
+  id: PropTypes.number.isRequired
+}
+
+export default WatchVideo
