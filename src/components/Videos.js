@@ -18,11 +18,11 @@ class Videos extends Component {
 
     return (
       <div>
-      <GridList
-        cols={3}
-        cellHeight={240}>
-        {video}
-      </GridList>
+        <GridList
+          cols={3}
+          cellHeight={240}>
+          {video}
+        </GridList>
       </div>
     )
   }
