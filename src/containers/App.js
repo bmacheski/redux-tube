@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
-import { fetchTrending } from '../actions/trending'
+import { fetchTopTrending } from '../actions/trending'
+import { fetchCategories } from '../actions/categories'
 import React, { Component, PropTypes } from 'react'
 
 class App extends Component {
@@ -9,8 +10,8 @@ class App extends Component {
 
   componentDidMount() {
     const { dispatch } = this.props
-    // dispatch(fetchCategories())
-    dispatch(fetchTrending())
+    dispatch(fetchCategories())
+    dispatch(fetchTopTrending())
   }
 
   render() {

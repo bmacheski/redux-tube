@@ -11,6 +11,7 @@ function requestTrending(category) {
 }
 
 function receiveTrending(entities, trending, category) {
+
   return {
     type: types.RECEIVE_TRENDING,
     entities,
@@ -19,13 +20,13 @@ function receiveTrending(entities, trending, category) {
   }
 }
 
-export function fetchTrending() {
+export function fetchTopTrending() {
   let category = 'mostPopular'
-  let mostPopularUrl = `${types.BASE_URL}videos?part=statistics,snippet,contentDetails&maxResults=9&chart=${category}&key=${types.API_KEY}`
+  let topTrendingUrl = `${types.BASE_URL}videos?part=statistics,snippet,contentDetails&maxResults=9&chart=${category}&key=${types.API_KEY}`
 
   return dispatch => {
     dispatch(requestTrending(category))
-    return fetch(mostPopularUrl)
+    return fetch(topTrendingUrl)
       .then(response => response.json())
       .then(json => {
         const normVideos = normalize(json.items, arrayOf(videoSchema))

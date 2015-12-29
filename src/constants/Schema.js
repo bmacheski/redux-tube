@@ -1,14 +1,7 @@
-import { Schema, arrayOf } from 'normalizr'
+import { Schema } from 'normalizr'
 
 let video = new Schema('videos')
-let trending = new Schema('trending')
-
-video.define({
-  trending: trending
-})
-
-trending.define({
-  trendingVideos: arrayOf(video)
-})
+let category = new Schema('categories')
 
 export const videoSchema = video
+export const categorySchema = category

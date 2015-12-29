@@ -31,6 +31,8 @@ export default function trendingVideos(state = {}, action) {
       return Object.assign({}, state, {
         [action.category]: trendingVideo(state[action.category], action)
       })
+    case types.RECEIVE_CATEGORIES:
+      return Object.assign({}, state)
     default:
       return state
   }

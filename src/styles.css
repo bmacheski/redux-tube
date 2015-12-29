@@ -1,6 +1,9 @@
 main {
   padding-left: 260px;
 }
+.left-nav {
+  overflow-y: scroll !important;
+}
 
 .video-title {
   color: white;

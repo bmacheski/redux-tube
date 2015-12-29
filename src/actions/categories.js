@@ -1,22 +1,22 @@
-function requestCategories() {
-  return {
-    type: types.REQUEST_CATEGORIES
-  }
-}
+import * as types from '../constants'
+import { categorySchema } from '../constants/Schema'
+import { normalize, arrayOf } from 'normalizr'
 
-function receiveCategories(json) {
+function receiveCategories(entities) {
   return {
     type: types.RECEIVE_CATEGORIES,
-    categories: json.items.map(child => child)
+    entities
   }
 }
 
 export function fetchCategories() {
   let categoriesUrl = `${types.BASE_URL}videoCategories?part=snippet&regionCode=US&key=${types.API_KEY}`
   return dispatch => {
-    dispatch(requestCategories())
     return fetch(categoriesUrl)
       .then(response => response.json())
-      .then(json => dispatch(receiveCategories(json)))
+      .then(json => {
+        const normCategories = normalize(json.items, arrayOf(categorySchema))
+        dispatch(receiveCategories(normCategories.entities))
+      })
   }
 }
