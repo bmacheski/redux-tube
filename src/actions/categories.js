@@ -3,14 +3,16 @@ import { categorySchema } from '../constants/Schema'
 import { normalize, arrayOf } from 'normalizr'
 
 function receiveCategories(entities) {
+
   return {
     type: types.RECEIVE_CATEGORIES,
     entities
   }
 }
 
-export function fetchCategories() {
+function fetchCategories() {
   let categoriesUrl = `${types.BASE_URL}videoCategories?part=snippet&regionCode=US&key=${types.API_KEY}`
+
   return dispatch => {
     return fetch(categoriesUrl)
       .then(response => response.json())
@@ -19,4 +21,8 @@ export function fetchCategories() {
         dispatch(receiveCategories(normCategories.entities))
       })
   }
+}
+
+export default {
+  fetchCategories
 }

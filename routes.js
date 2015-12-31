@@ -8,6 +8,8 @@ export default (
   <Route component={App}>
     <Route path="/"
       component={VideosContainer}/>
+    <Route path="/videos/:category"
+      component={VideosContainer}/>
     <Route path="video/:videoId"
       component={VideoContainer}/>
   </Route>
