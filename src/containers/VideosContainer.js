@@ -6,17 +6,20 @@ import MenuItem from 'material-ui/lib/menus/menu-item'
 import Menu from 'material-ui/lib/menus/menu'
 import LeftNav from 'material-ui/lib/left-nav'
 import CategoriesNav from '../components/CategoriesNav'
+import trendingActions from '../actions/trending'
+import { bindActionCreators } from 'redux';
 
 class VideosContainer extends Component {
   render() {
-    const { categories } = this.props
+    const { categories, actions } = this.props
 
     return (
       <div>
         <CategoriesNav
-          categories={categories} />
+          {...this.props} />
         <main>
-          <Videos {...this.props} />
+          <Videos
+            {...this.props} />
         </main>
       </div>
     )
@@ -35,4 +38,10 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(VideosContainer)
+const mapDispatchToProps = (dispatch) => ({
+  actions: {
+    trending: bindActionCreators(trendingActions, dispatch)
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(VideosContainer)

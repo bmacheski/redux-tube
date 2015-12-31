@@ -3,6 +3,11 @@ import GridList from 'material-ui/lib/grid-list/grid-list'
 import React, { PropTypes, Component } from 'react'
 
 class Videos extends Component {
+  componentDidMount() {
+    const { actions } = this.props
+    this.props.actions.trending.fetchTopTrending()
+  }
+
   renderVideos() {
     const { category, videos, trendingVideos } = this.props
     const items = category in trendingVideos ? trendingVideos[category].items : []

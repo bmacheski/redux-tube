@@ -2,6 +2,7 @@ import * as types from '../constants'
 import fetch from 'isomorphic-fetch'
 import { videoSchema } from '../constants/Schema'
 import { normalize, arrayOf } from 'normalizr'
+import { setUrl } from '../utils/url'
 
 function requestTrending(category) {
   return {
@@ -11,7 +12,6 @@ function requestTrending(category) {
 }
 
 function receiveTrending(entities, trending, category) {
-
   return {
     type: types.RECEIVE_TRENDING,
     entities,
@@ -20,13 +20,13 @@ function receiveTrending(entities, trending, category) {
   }
 }
 
-export function fetchTopTrending() {
-  let category = 'mostPopular'
-  let topTrendingUrl = `${types.BASE_URL}videos?part=statistics,snippet,contentDetails&maxResults=9&chart=${category}&key=${types.API_KEY}`
+function fetchTopTrending(categ) {
+  let category = categ || 'mostPopular'
+  let url = setUrl(category)
 
   return dispatch => {
     dispatch(requestTrending(category))
-    return fetch(topTrendingUrl)
+    return fetch(url)
       .then(response => response.json())
       .then(json => {
         const normVideos = normalize(json.items, arrayOf(videoSchema))
@@ -34,4 +34,8 @@ export function fetchTopTrending() {
         dispatch(receiveTrending(normVideos.entities, trendingArr, category))
       })
   }
+}
+
+export default {
+  fetchTopTrending
 }
