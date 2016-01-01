@@ -4,8 +4,11 @@ import React, { PropTypes, Component } from 'react'
 
 class Videos extends Component {
   componentDidMount() {
-    const { category, trendingVideos } = this.props
-    this.props.actions.categories.fetchCategories()
+    const { category, categories, trendingVideos } = this.props
+
+    if (!Object.keys(categories).length) {
+      this.props.actions.categories.fetchCategories()
+    }
 
     if (!(category in trendingVideos)) {
       this.props.actions.trending.fetchTopTrending(category)
@@ -35,13 +38,11 @@ class Videos extends Component {
     let video = this.renderVideos()
 
     return (
-      <div>
-        <GridList
-          cols={3}
-          cellHeight={240}>
-          {video}
-        </GridList>
-      </div>
+      <GridList
+        cols={3}
+        cellHeight={240}>
+        {video}
+      </GridList>
     )
   }
 }
