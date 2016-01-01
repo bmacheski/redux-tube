@@ -1,12 +1,12 @@
 import { connect } from 'react-redux'
 import React, { Component, PropTypes } from 'react'
-// import { fetchTopTrending } from '../actions/trending'
 import Videos from '../components/Videos'
 import MenuItem from 'material-ui/lib/menus/menu-item'
 import Menu from 'material-ui/lib/menus/menu'
 import LeftNav from 'material-ui/lib/left-nav'
 import CategoriesNav from '../components/CategoriesNav'
 import trendingActions from '../actions/trending'
+import categoryActions from '../actions/categories'
 import { bindActionCreators } from 'redux'
 
 class VideosContainer extends Component {
@@ -38,7 +38,8 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = (dispatch) => ({
   actions: {
-    trending: bindActionCreators(trendingActions, dispatch)
+    trending: bindActionCreators(trendingActions, dispatch),
+    categories: bindActionCreators(categoryActions, dispatch)
   }
 })
 

@@ -22,7 +22,7 @@ class CategoriesNav extends Component {
         if (a.category < b.category) return -1
         else return 0
       })
-      .filter((val) => {
+      .filter(val => {
         return val.assignable !== false
       })
       .map((item, id) => {

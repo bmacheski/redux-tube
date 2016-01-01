@@ -4,9 +4,12 @@ import React, { PropTypes, Component } from 'react'
 
 class Videos extends Component {
   componentDidMount() {
-    const { category } = this.props
+    const { category, trendingVideos } = this.props
+    this.props.actions.categories.fetchCategories()
 
-    this.props.actions.trending.fetchTopTrending(category)
+    if (!(category in trendingVideos)) {
+      this.props.actions.trending.fetchTopTrending(category)
+    }
   }
 
   componentWillReceiveProps(nextProps) {

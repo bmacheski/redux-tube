@@ -1,18 +1,7 @@
 import { connect } from 'react-redux'
 import React, { Component, PropTypes } from 'react'
-import { fetchCategories } from '../actions/categories'
-import categoryActions from '../actions/categories'
-import { bindActionCreators } from 'redux'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-  componentDidMount() {
-    this.props.actions.categories.fetchCategories()
-  }
-
   render() {
     const { children } = this.props
 
@@ -24,14 +13,4 @@ class App extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {}
-}
-
-const mapDispatchToProps = (dispatch) => ({
-  actions: {
-    categories: bindActionCreators(categoryActions, dispatch)
-  }
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect()(App)
