@@ -10,11 +10,10 @@ class WatchVideo extends Component {
     }
 
     return (
-      <div>
-        <YouTube
-          videoId={id}
-          opts={opts} />
-      </div>
+      <YouTube
+        className="main"
+        videoId={id}
+        opts={opts} />
     )
   }
 }

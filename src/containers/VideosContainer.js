@@ -5,30 +5,33 @@ import CategoriesNav from '../components/CategoriesNav'
 import trendingActions from '../actions/trending'
 import categoryActions from '../actions/categories'
 import { bindActionCreators } from 'redux'
+import { pushState } from 'redux-router'
 
 class VideosContainer extends Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
     return (
       <div>
         <CategoriesNav
           {...this.props} />
-        <main>
-          <Videos
-            {...this.props} />
-        </main>
+        <Videos
+          {...this.props} />
       </div>
     )
   }
 }
 
 function mapStateToProps(state) {
-  const { entities, trendingVideos } = state
+  const { entities, videos } = state
   const category = state.router.params.category ? state.router.params.category : 'mostPopular'
 
   return {
-    videos: entities.videos,
+    videosStore: entities.videos,
     categories: entities.categories,
-    trendingVideos,
+    videos,
     category
   }
 }
@@ -36,8 +39,12 @@ function mapStateToProps(state) {
 const mapDispatchToProps = (dispatch) => ({
   actions: {
     trending: bindActionCreators(trendingActions, dispatch),
-    categories: bindActionCreators(categoryActions, dispatch)
+    categories: bindActionCreators(categoryActions, dispatch),
+    pushState: bindActionCreators(pushState, dispatch)
   }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(VideosContainer)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(VideosContainer)

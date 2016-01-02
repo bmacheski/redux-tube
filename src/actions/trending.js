@@ -20,9 +20,8 @@ function receiveTrending(entities, trending, category) {
   }
 }
 
-function fetchTopTrending(categ) {
-  let category = categ || 'mostPopular'
-  let url = setUrl(category)
+function fetchTopTrending(category) {
+  const url = setUrl(category)
 
   return dispatch => {
     dispatch(requestTrending(category))
@@ -31,6 +30,7 @@ function fetchTopTrending(categ) {
       .then(json => {
         const normVideos = normalize(json.items, arrayOf(videoSchema))
         const trendingArr = normVideos.result
+
         dispatch(receiveTrending(normVideos.entities, trendingArr, category))
       })
   }

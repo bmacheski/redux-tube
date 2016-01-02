@@ -4,13 +4,13 @@ import React, { PropTypes, Component } from 'react'
 
 class Videos extends Component {
   componentDidMount() {
-    const { category, categories, trendingVideos } = this.props
+    const { category, categories, videos } = this.props
 
     if (!Object.keys(categories).length) {
       this.props.actions.categories.fetchCategories()
     }
 
-    if (!(category in trendingVideos)) {
+    if (!(category in videos)) {
       this.props.actions.trending.fetchTopTrending(category)
     }
   }
@@ -24,11 +24,16 @@ class Videos extends Component {
   }
 
   renderVideos() {
-    const { category, videos, trendingVideos } = this.props
-    const items = category in trendingVideos ? trendingVideos[category].items : []
+    const { category, videosStore, videos } = this.props
+    const items = category in videos ? videos[category].items : []
     let result = items.map((videoId, i) => {
-      const video = videos[videoId]
-      return <Video key={i} video={video} />
+      const video = videosStore[videoId]
+
+      return (
+        <Video
+          key={i}
+          video={video} />
+      )
     })
 
     return result
@@ -39,6 +44,7 @@ class Videos extends Component {
 
     return (
       <GridList
+        className="main"
         cols={3}
         cellHeight={240}>
         {video}

@@ -8,7 +8,6 @@ class WatchVideoNav extends Component {
     return (
       <LeftNav>
         <h1>{video.snippet.title}</h1>
-        <h3>Views: {video.statistics.viewCount}</h3>
       </LeftNav>
     )
   }

@@ -13,10 +13,10 @@ class VideoContainer extends Component {
 
     return (
       <div>
-        <WatchVideoNav video={video} />
-        <main>
-          <WatchVideo id={videoId} />
-        </main>
+        <WatchVideoNav
+          video={video} />
+        <WatchVideo
+          id={videoId} />
       </div>
     )
   }
@@ -32,4 +32,6 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(VideoContainer)
+export default connect(
+  mapStateToProps
+)(VideoContainer)

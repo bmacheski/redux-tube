@@ -1,10 +1,10 @@
-import trendingVideos from './trending'
+import videos from './videos'
 import entities from './entities'
 import { combineReducers } from 'redux'
 import { routerStateReducer as router } from 'redux-router'
 
 const rootReducer = combineReducers({
-  trendingVideos,
+  videos,
   entities,
   router
 })

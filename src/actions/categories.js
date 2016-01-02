@@ -18,6 +18,7 @@ function fetchCategories() {
       .then(response => response.json())
       .then(json => {
         const normCategories = normalize(json.items, arrayOf(categorySchema))
+
         dispatch(receiveCategories(normCategories.entities))
       })
   }

@@ -2,10 +2,12 @@ import React, { Component, PropTypes } from 'react'
 import LeftNav from 'material-ui/lib/left-nav'
 import MenuItem from 'material-ui/lib/menus/menu-item'
 import { Link } from 'react-router'
+import SearchBar from './SearchBar'
 
 class CategoriesNav extends Component {
   render() {
     const { categories } = this.props
+    const { pushState } = this.props.actions
     const categoriesArr = Object.keys(categories)
       .map(val => {
         return {
@@ -27,13 +29,17 @@ class CategoriesNav extends Component {
         return (
           <MenuItem
             containerElement={<Link to={`/videos/${item.id}`} />}
-            primaryText={item.category} key={item.id}>
+            primaryText={item.category}
+            key={item.id}>
           </MenuItem>
         )
-    })
+      })
 
     return (
-      <LeftNav className="left-nav">
+      <LeftNav
+        className="left-nav">
+        <SearchBar
+        pushState={pushState}/>
         {menuItems}
       </LeftNav>
     )
