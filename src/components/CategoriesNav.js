@@ -3,6 +3,7 @@ import LeftNav from 'material-ui/lib/left-nav'
 import MenuItem from 'material-ui/lib/menus/menu-item'
 import { Link } from 'react-router'
 import SearchBar from './SearchBar'
+import Nav from './Nav'
 
 class CategoriesNav extends Component {
   render() {

@@ -11,7 +11,7 @@ function receiveCategories(entities) {
 }
 
 function fetchCategories() {
-  let categoriesUrl = `${types.BASE_URL}videoCategories?part=snippet&regionCode=US&key=${types.API_KEY}`
+  const categoriesUrl = `${types.BASE_URL}videoCategories?part=snippet&regionCode=US&key=${types.API_KEY}`
 
   return dispatch => {
     return fetch(categoriesUrl)

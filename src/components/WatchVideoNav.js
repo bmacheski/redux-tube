@@ -1,14 +1,16 @@
 import React, { Component, PropTypes } from 'react'
 import LeftNav from 'material-ui/lib/left-nav'
+import Nav from './Nav'
 
 class WatchVideoNav extends Component {
   render() {
-    const { video } = this.props
+    const { video, pushState } = this.props
+    const items = (<h1>{video.snippet.title}</h1>)
 
     return (
-      <LeftNav>
-        <h1>{video.snippet.title}</h1>
-      </LeftNav>
+      <Nav
+        pushState={pushState}
+        items={items} />
     )
   }
 }

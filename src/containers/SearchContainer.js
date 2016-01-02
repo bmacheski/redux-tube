@@ -4,12 +4,14 @@ import SearchNav from '../components/SearchNav'
 import SearchVideos from '../components/SearchVideos'
 import searchActions from '../actions/search'
 import { bindActionCreators } from 'redux'
+import { pushState } from 'redux-router'
 
 class SearchContainer extends Component {
   render() {
     return (
       <div>
-        <SearchNav />
+        <SearchNav
+        {...this.props} />
         <SearchVideos
         {...this.props} />
       </div>
@@ -31,6 +33,7 @@ function mapStateToProps(state) {
 const mapDispatchToProps = (dispatch) => ({
   actions: {
     search: bindActionCreators(searchActions, dispatch),
+    pushState: bindActionCreators(pushState, dispatch)
   }
 })
 

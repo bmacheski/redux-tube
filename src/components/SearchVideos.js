@@ -11,10 +11,20 @@ class SearchVideos extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { videoQuery, videos } = this.props
+
+     if (!(nextProps.videoQuery in videos)) {
+      if( videoQuery !== nextProps.videoQuery) {
+        this.props.actions.search.fetchSearchResults(nextProps.videoQuery)
+      }
+    }
+  }
+
   renderVideos() {
     const { videoQuery, videoStore, videos } = this.props
     const items = videoQuery in videos ? videos[videoQuery].items : []
-    let searchResult = items.map((videoId, i) => {
+    const searchResult = items.map((videoId, i) => {
       const video = videoStore[videoId]
       return <Video key={i} video={video} />
     })
@@ -23,7 +33,7 @@ class SearchVideos extends Component {
   }
 
   render() {
-    let video = this.renderVideos()
+    const video = this.renderVideos()
 
     return (
       <GridList

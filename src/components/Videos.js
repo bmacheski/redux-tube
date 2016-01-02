@@ -26,7 +26,7 @@ class Videos extends Component {
   renderVideos() {
     const { category, videosStore, videos } = this.props
     const items = category in videos ? videos[category].items : []
-    let result = items.map((videoId, i) => {
+    const result = items.map((videoId, i) => {
       const video = videosStore[videoId]
 
       return (
@@ -40,7 +40,7 @@ class Videos extends Component {
   }
 
   render () {
-    let video = this.renderVideos()
+    const video = this.renderVideos()
 
     return (
       <GridList

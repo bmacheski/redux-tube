@@ -4,14 +4,15 @@ import TextField from 'material-ui/lib/text-field'
 
 class SearchBar extends Component {
   handleSearch(e) {
+    const { pushState } = this.props
     if (e.keyCode === 13) {
-      let query = e.currentTarget.value.trim()
+      const query = e.currentTarget.value.trim()
       this.props.pushState(null, `/search/${query}`)
     }
   }
 
   render() {
-    let header = (
+    const header = (
       <TextField
         hintText="Search YouTube."
         ref="search"
