@@ -7,8 +7,8 @@ import Nav from './Nav'
 
 class CategoriesNav extends Component {
   render() {
-    const { categories } = this.props
-    const { pushState } = this.props.actions
+    const { categories, pushState } = this.props
+
     const categoriesArr = Object.keys(categories)
       .map(val => {
         return {
@@ -37,12 +37,9 @@ class CategoriesNav extends Component {
       })
 
     return (
-      <LeftNav
-        className="left-nav">
-        <SearchBar
+      <Nav
+        items={menuItems}
         pushState={pushState}/>
-        {menuItems}
-      </LeftNav>
     )
   }
 }

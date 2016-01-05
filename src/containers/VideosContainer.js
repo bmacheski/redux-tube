@@ -36,13 +36,13 @@ function mapStateToProps(state) {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  actions: {
-    trending: bindActionCreators(trendingActions, dispatch),
-    categories: bindActionCreators(categoryActions, dispatch),
+function mapDispatchToProps(dispatch) {
+  return {
+    trendingActions: bindActionCreators(trendingActions, dispatch),
+    categoriesActions: bindActionCreators(categoryActions, dispatch),
     pushState: bindActionCreators(pushState, dispatch)
   }
-})
+}
 
 export default connect(
   mapStateToProps,

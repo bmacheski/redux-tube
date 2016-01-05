@@ -4,19 +4,19 @@ import GridList from 'material-ui/lib/grid-list/grid-list'
 
 class SearchVideos extends Component {
   componentDidMount() {
-    const { videoQuery, videos } = this.props
+    const { videoQuery, videos, search } = this.props
 
     if (!(videoQuery in videos)) {
-      this.props.actions.search.fetchSearchResults(videoQuery)
+      this.props.search.fetchSearchResults(videoQuery)
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    const { videoQuery, videos } = this.props
+    const { videoQuery, videos, search } = this.props
 
      if (!(nextProps.videoQuery in videos)) {
       if( videoQuery !== nextProps.videoQuery) {
-        this.props.actions.search.fetchSearchResults(nextProps.videoQuery)
+        this.props.search.fetchSearchResults(nextProps.videoQuery)
       }
     }
   }

@@ -4,14 +4,14 @@ import React, { PropTypes, Component } from 'react'
 
 class Videos extends Component {
   componentDidMount() {
-    const { category, categories, videos } = this.props
+    const { category, categories, videos, trendingActions, categoriesActions } = this.props
 
     if (!Object.keys(categories).length) {
-      this.props.actions.categories.fetchCategories()
+      this.props.categoriesActions.fetchCategories()
     }
 
     if (!(category in videos)) {
-      this.props.actions.trending.fetchTopTrending(category)
+      this.props.trendingActions.fetchTopTrending(category)
     }
   }
 
@@ -19,7 +19,7 @@ class Videos extends Component {
     const { actions, category, dispatch } = this.props
 
     if (category !== nextProps.category) {
-      this.props.actions.trending.fetchTopTrending(nextProps.category)
+      this.props.trendingActions.fetchTopTrending(nextProps.category)
     }
   }
 

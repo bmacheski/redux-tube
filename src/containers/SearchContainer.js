@@ -30,12 +30,12 @@ function mapStateToProps(state) {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  actions: {
+function mapDispatchToProps(dispatch) {
+  return {
     search: bindActionCreators(searchActions, dispatch),
     pushState: bindActionCreators(pushState, dispatch)
   }
-})
+}
 
 export default connect(
   mapStateToProps,

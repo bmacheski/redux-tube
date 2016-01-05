@@ -1,17 +1,13 @@
 import { connect } from 'react-redux'
 import React, { Component, PropTypes } from 'react'
-import LeftNav from 'material-ui/lib/left-nav'
 import WatchVideo from '../components/WatchVideo'
-import TextField from 'material-ui/lib/text-field'
-import MenuItem from 'material-ui/lib/menus/menu-item'
 import WatchVideoNav from '../components/WatchVideoNav'
 import { bindActionCreators } from 'redux'
 import { pushState } from 'redux-router'
 
 class VideoContainer extends Component {
   render() {
-    const { videoId, videos } = this.props
-    const { pushState } = this.props.actions
+    const { videoId, videos, pushState } = this.props
     const video = videos[videoId]
 
     return (
@@ -36,13 +32,11 @@ function mapStateToProps(state) {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  actions: {
+function mapDispatchToProps(dispatch) {
+  return {
     pushState: bindActionCreators(pushState, dispatch)
   }
-})
-
-
+}
 
 export default connect(
   mapStateToProps,
