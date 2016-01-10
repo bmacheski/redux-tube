@@ -9,6 +9,15 @@ export function setUrl(category) {
   }
 }
 
+export function setNextUrl(category, pageToken) {
+  if (category === 'mostPopular') {
+   return `${types.BASE_URL}videos?part=statistics,snippet,contentDetails&maxResults=9&chart=${category}&key=${types.API_KEY}&pageToken=${pageToken}`
+  }
+  else {
+    return `${types.BASE_URL}videos?part=statistics,snippet,contentDetails&chart=mostPopular&maxResults=9&videoCategoryId=${category}&key=${types.API_KEY}&pageToken=${pageToken}`
+  }
+}
+
 export function setSearchUrl(query) {
  return `${types.BASE_URL}search?part=snippet,id&type=video&maxResults=12&q=${query}&key=${types.API_KEY}`
 }

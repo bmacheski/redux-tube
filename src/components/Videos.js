@@ -1,28 +1,9 @@
 import Video from './Video'
 import GridList from 'material-ui/lib/grid-list/grid-list'
 import React, { PropTypes, Component } from 'react'
+import Scroll from './Scroll'
 
 class Videos extends Component {
-  componentDidMount() {
-    const { category, categories, videos, trendingActions, categoriesActions } = this.props
-
-    if (!Object.keys(categories).length) {
-      this.props.categoriesActions.fetchCategories()
-    }
-
-    if (!(category in videos)) {
-      this.props.trendingActions.fetchTopTrending(category)
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const { actions, category, dispatch } = this.props
-
-    if (category !== nextProps.category) {
-      this.props.trendingActions.fetchTopTrending(nextProps.category)
-    }
-  }
-
   renderVideos() {
     const { category, videosStore, videos } = this.props
     const items = category in videos ? videos[category].items : []
@@ -57,4 +38,4 @@ Videos.PropTypes = {
   items: PropTypes.array.isRequired
 }
 
-export default Videos
+export default Scroll(Videos)

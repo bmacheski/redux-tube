@@ -12,13 +12,46 @@ class VideosContainer extends Component {
     super(props)
   }
 
+  componentDidMount() {
+    const { category, categories, videos, trendingActions, categoriesActions } = this.props
+
+    if (!Object.keys(categories).length) {
+      this.props.categoriesActions.fetchCategories()
+    }
+
+    if (!(category in videos)) {
+      this.props.trendingActions.fetchTopTrendingIfNeeded(category)
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { category, dispatch } = this.props
+
+    if (category !== nextProps.category) {
+      this.props.trendingActions.fetchTopTrendingIfNeeded(nextProps.category)
+    }
+  }
+
+  handleScroll() {
+    const { category } = this.props
+    this.props.trendingActions.fetchTopTrendingIfNeeded(category)
+  }
+
   render() {
+    const { category, categories, videos, trendingActions, categoriesActions, dispatch, videosStore, pushState } = this.props
     return (
       <div>
         <CategoriesNav
           {...this.props} />
         <Videos
-          {...this.props} />
+          category={category}
+          categories={categories}
+          videos={videos}
+          trendingActions={trendingActions}
+          categoriesActions={categoriesActions}
+          dispatch={dispatch}
+          videosStore={videosStore}
+          scrollFunc={::this.handleScroll} />
       </div>
     )
   }

@@ -2,28 +2,33 @@ import * as types from '../constants'
 
 const initialTrendingState = {
   isFetching: false,
-  items: []
+  items: [],
+  nextUrl: false
 }
 
 function video(state = initialTrendingState, action) {
   switch (action.type) {
     case types.REQUEST_TRENDING:
       return Object.assign({}, state, {
-        isFetching: true
+        isFetching: true,
+        nextUrl: null
       })
     case types.RECEIVE_TRENDING:
       return Object.assign({}, state, {
         isFetching: false,
-        items: [...state.items, ...action.trending]
+        items: [...state.items, ...action.trending],
+        nextUrl: action.nextUrl
       })
     case types.REQUEST_SEARCH:
       return Object.assign({}, state, {
-        isFetching: true
+        isFetching: true,
+        nextUrl: null
       })
     case types.RECEIVE_SEARCH:
       return Object.assign({}, state, {
         isFetching: false,
-        items: [...state.items, ...action.searchItems]
+        items: [...state.items, ...action.searchItems],
+        nextUrl: action.nextUrl
       })
     default:
       return state
