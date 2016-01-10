@@ -9,7 +9,7 @@ It was built as an exercise to learn Redux.
 
 ## Credit
 
-Both [@andrewgnu]'s [sound-redux] and [@markduke182]'s [twitch-redux] were incredibly helpful
+Both [@andrewngu]'s [sound-redux] and [@marduke182]'s [twitch-redux] were incredibly helpful
 in understanding Redux in combination with async data.
 
 [@mikecrittenden]: https://github.com/mikecrittenden
