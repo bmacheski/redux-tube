@@ -1,6 +1,6 @@
 # ReduxTube
 
-ReduxTube is a minimal YouTube viewer which has is inspired by [@mikecrittenden]'s [toogles].
+ReduxTube is a minimal YouTube viewer and was inspired by [@mikecrittenden]'s [toogles].
 It was built as an exercise to learn Redux.
 
 ## Roadmap
