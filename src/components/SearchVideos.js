@@ -1,28 +1,12 @@
 import React, { Component, PropTypes } from 'react'
 import Video from './Video'
 import GridList from 'material-ui/lib/grid-list/grid-list'
+import Scroll from './Scroll'
 
 class SearchVideos extends Component {
-  componentDidMount() {
-    const { videoQuery, videos, search } = this.props
-
-    if (!(videoQuery in videos)) {
-      this.props.search.fetchSearchResults(videoQuery)
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const { videoQuery, videos, search } = this.props
-
-     if (!(nextProps.videoQuery in videos)) {
-      if( videoQuery !== nextProps.videoQuery) {
-        this.props.search.fetchSearchResults(nextProps.videoQuery)
-      }
-    }
-  }
-
   renderVideos() {
     const { videoQuery, videoStore, videos } = this.props
+
     const items = videoQuery in videos ? videos[videoQuery].items : []
     const searchResult = items.map((videoId, i) => {
       const video = videoStore[videoId]
