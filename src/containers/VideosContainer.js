@@ -51,7 +51,7 @@ class VideosContainer extends Component {
           categoriesActions={categoriesActions}
           dispatch={dispatch}
           videosStore={videosStore}
-          scrollFunc={::this.handleScroll} />
+          scrollFunc={this.handleScroll.bind(this)} />
       </div>
     )
   }

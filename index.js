@@ -1,4 +1,3 @@
-import 'babel-core/polyfill'
 import './src/styles.css'
 
 import React from 'react'

@@ -16,7 +16,7 @@ class SearchBar extends Component {
       <TextField
         hintText="Search YouTube."
         ref="search"
-        onKeyUp={::this.handleSearch} />
+        onKeyUp={this.handleSearch.bind(this)} />
     )
 
     return (
