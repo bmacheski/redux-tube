@@ -4,6 +4,7 @@ import React, { PropTypes, Component } from 'react'
 import Scroll from './Scroll'
 
 class Videos extends Component {
+
   renderVideos() {
     const { category, videosStore, videos } = this.props
     const items = category in videos ? videos[category].items : []
@@ -13,14 +14,15 @@ class Videos extends Component {
       return (
         <Video
           key={i}
-          video={video} />
+          video={video}
+        />
       )
     })
 
     return result
   }
 
-  render () {
+  render() {
     const video = this.renderVideos()
 
     return (

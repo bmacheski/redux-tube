@@ -22,7 +22,6 @@ function receiveTrending(entities, trending, category, nextUrl) {
 }
 
 function fetchTopTrending(category, url) {
-
   return dispatch => {
     dispatch(requestTrending(category))
     return fetch(url)
@@ -50,6 +49,7 @@ function fetchTopTrendingIfNeeded(category) {
 
 function constructNextUrl(videos, category) {
     const categoryVideos = videos[category]
+
     if (!categoryVideos || categoryVideos.nextUrl === false) {
       return setUrl(category)
     }
@@ -58,6 +58,7 @@ function constructNextUrl(videos, category) {
 
 function shouldFetchTopTrending(videos, category) {
   const selectedCategory = videos[category]
+
   if (!selectedCategory || selectedCategory.nextUrl !== null) {
     return true
   }

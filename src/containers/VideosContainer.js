@@ -8,6 +8,7 @@ import { bindActionCreators } from 'redux'
 import { pushState } from 'redux-router'
 
 class VideosContainer extends Component {
+
   constructor(props) {
     super(props)
   }

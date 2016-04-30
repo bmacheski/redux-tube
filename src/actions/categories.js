@@ -3,7 +3,6 @@ import { categorySchema } from '../constants/Schema'
 import { normalize, arrayOf } from 'normalizr'
 
 function receiveCategories(entities) {
-
   return {
     type: types.RECEIVE_CATEGORIES,
     entities

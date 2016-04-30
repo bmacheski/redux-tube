@@ -6,7 +6,6 @@ import Scroll from './Scroll'
 class SearchVideos extends Component {
   renderVideos() {
     const { videoQuery, videoStore, videos } = this.props
-
     const items = videoQuery in videos ? videos[videoQuery].items : []
     const searchResult = items.map((videoId, i) => {
       const video = videoStore[videoId]

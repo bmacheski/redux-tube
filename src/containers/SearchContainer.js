@@ -7,11 +7,12 @@ import { bindActionCreators } from 'redux'
 import { pushState } from 'redux-router'
 
 class SearchContainer extends Component {
+
   componentDidMount() {
     const { videoQuery, videos, search } = this.props
 
     if (!(videoQuery in videos)) {
-      this.props.search.fetchSearchResultsIfNeeded(videoQuery)
+      this.props.search.fetchSearchResults(videoQuery)
     }
   }
 
@@ -20,7 +21,7 @@ class SearchContainer extends Component {
 
      if (!(nextProps.videoQuery in videos)) {
       if( videoQuery !== nextProps.videoQuery) {
-        this.props.search.fetchSearchResultsIfNeeded(nextProps.videoQuery)
+        this.props.search.fetchSearchResults(nextProps.videoQuery)
       }
     }
   }
@@ -29,13 +30,13 @@ class SearchContainer extends Component {
     const { videoQuery, videoStore, videos, search, pushState } = this.props
     return (
       <div>
-        <SearchNav
-          pushState={pushState} />
+        <SearchNav pushState={pushState} />
         <SearchVideos
           videoQuery={videoQuery}
           videos={videos}
           videoStore={videoStore}
-          search={search} />
+          search={search}
+        />
       </div>
     )
   }

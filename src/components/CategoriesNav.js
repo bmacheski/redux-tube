@@ -6,6 +6,7 @@ import SearchBar from './SearchBar'
 import Nav from './Nav'
 
 class CategoriesNav extends Component {
+
   render() {
     const { categories, pushState } = this.props
 

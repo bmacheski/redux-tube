@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux'
 import { pushState } from 'redux-router'
 
 class VideoContainer extends Component {
+
   render() {
     const { videoId, videos, pushState } = this.props
     const video = videos[videoId]
@@ -14,9 +15,9 @@ class VideoContainer extends Component {
       <div>
         <WatchVideoNav
           pushState={pushState}
-          video={video} />
-        <WatchVideo
-          id={videoId} />
+          video={video}
+        />
+        <WatchVideo id={videoId} />
       </div>
     )
   }
