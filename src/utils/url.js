@@ -16,5 +16,9 @@ export function setNextUrl(category, pageToken) {
 }
 
 export function setSearchUrl(query) {
- return `${types.BASE_URL}search?part=snippet,id&type=video&maxResults=${view_count}&q=${query}&key=${types.API_KEY}`
+	return `${types.BASE_URL}search?part=snippet,id&type=video&maxResults=${view_count}&q=${query}&key=${types.API_KEY}`
+}
+
+export function setCategoryUrl() {
+	return `${types.BASE_URL}videoCategories?part=snippet&regionCode=US&key=${types.API_KEY}`
 }

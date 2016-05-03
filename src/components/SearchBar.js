@@ -3,7 +3,6 @@ import MenuItem from 'material-ui/lib/menus/menu-item'
 import TextField from 'material-ui/lib/text-field'
 
 class SearchBar extends Component {
-
   handleSearch(e) {
     const { pushState } = this.props
 

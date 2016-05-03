@@ -3,7 +3,6 @@ import GridTile from 'material-ui/lib/grid-list/grid-tile'
 import { Link } from 'react-router'
 
 class Video extends Component {
-
   render() {
     const { video } = this.props
 

@@ -1,6 +1,7 @@
 import * as types from '../constants'
 import { categorySchema } from '../constants/Schema'
 import { normalize, arrayOf } from 'normalizr'
+import { setCategoryUrl } from '../utils/url'
 
 function receiveCategories(entities) {
   return {
@@ -10,7 +11,7 @@ function receiveCategories(entities) {
 }
 
 function fetchCategories() {
-  const categoriesUrl = `${types.BASE_URL}videoCategories?part=snippet&regionCode=US&key=${types.API_KEY}`
+  const categoriesUrl = setCategoryUrl()
 
   return dispatch => {
     return fetch(categoriesUrl)

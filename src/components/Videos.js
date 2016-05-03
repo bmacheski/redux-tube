@@ -4,7 +4,6 @@ import React, { PropTypes, Component } from 'react'
 import Scroll from './Scroll'
 
 class Videos extends Component {
-
   renderVideos() {
     const { category, videosStore, videos } = this.props
     const items = category in videos ? videos[category].items : []
