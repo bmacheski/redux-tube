@@ -9,7 +9,6 @@ class CategoriesNav extends Component {
 
   render() {
     const { categories, pushState } = this.props
-
     const categoriesArr = Object.keys(categories)
       .map(val => {
         return {
@@ -24,9 +23,7 @@ class CategoriesNav extends Component {
         if (a.category < b.category) return -1
         else return 0
       })
-      .filter(val => {
-        return val.assignable !== false
-      })
+      .filter(val => val.assignable !== false)
       .map((item, id) => {
         return (
           <MenuItem
@@ -40,7 +37,8 @@ class CategoriesNav extends Component {
     return (
       <Nav
         items={menuItems}
-        pushState={pushState}/>
+        pushState={pushState}
+      />
     )
   }
 }

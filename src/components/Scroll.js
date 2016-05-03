@@ -24,7 +24,8 @@ export default function (InnerComponent) {
     render () {
       return (
         <InnerComponent
-          {...this.props} />
+          {...this.props}
+        />
       )
     }
   }

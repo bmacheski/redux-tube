@@ -8,12 +8,12 @@ import { Route } from 'react-router'
 export default (
   <Route component={App}>
     <Route path="/"
-      component={VideosContainer}/>
+      component={VideosContainer} />
     <Route path="/videos/:category"
-      component={VideosContainer}/>
+      component={VideosContainer} />
     <Route path="video/:videoId"
-      component={VideoContainer}/>
+      component={VideoContainer} />
     <Route path="search/:query"
-      component={SearchContainer}/>
+      component={SearchContainer} />
   </Route>
 )
