@@ -27,7 +27,7 @@ function fetchTopTrending(category, url) {
     return fetch(url)
       .then(response => response.json())
       .then(json => {
-        let nextUrl = json.nextPageToken
+        const nextUrl = json.nextPageToken
         const normVideos = normalize(json.items, arrayOf(videoSchema))
         const trendingArr = normVideos.result
 
@@ -39,6 +39,7 @@ function fetchTopTrending(category, url) {
 function fetchTopTrendingIfNeeded(category) {
   return (dispatch, getState) => {
     const { videos } = getState()
+
     if (shouldFetchTopTrending(videos, category)) {
       const nextUrl = constructNextUrl(videos, category)
 

@@ -9,9 +9,9 @@ const webpack              = require('webpack')
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
 app.use(webpackHotMiddleware(compiler))
 
-app.get('/', function(req, res) { res.sendFile(__dirname + '/index.html') })
+app.get('/', (req, res) => { res.sendFile(__dirname + '/index.html') })
 
-app.listen(port, function(error) {
+app.listen(port, error => {
   error
   ? console.error(error)
   : console.info('Listening on port', port)

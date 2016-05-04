@@ -6,7 +6,6 @@ import { bindActionCreators } from 'redux'
 import { pushState } from 'redux-router'
 
 class VideoContainer extends Component {
-
   render() {
     const { videoId, videos, pushState } = this.props
     const video = videos[videoId]

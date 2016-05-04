@@ -7,7 +7,6 @@ import { bindActionCreators } from 'redux'
 import { pushState } from 'redux-router'
 
 class SearchContainer extends Component {
-
   componentDidMount() {
     const { videoQuery, videos, search } = this.props
 
@@ -19,7 +18,7 @@ class SearchContainer extends Component {
   componentWillReceiveProps(nextProps) {
     const { videoQuery, videos, search } = this.props
 
-     if (!(nextProps.videoQuery in videos)) {
+    if (!(nextProps.videoQuery in videos)) {
       if( videoQuery !== nextProps.videoQuery) {
         this.props.search.fetchSearchResults(nextProps.videoQuery)
       }
@@ -28,6 +27,7 @@ class SearchContainer extends Component {
 
   render() {
     const { videoQuery, videoStore, videos, search, pushState } = this.props
+
     return (
       <div>
         <SearchNav pushState={pushState} />

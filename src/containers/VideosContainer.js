@@ -8,7 +8,6 @@ import { bindActionCreators } from 'redux'
 import { pushState } from 'redux-router'
 
 class VideosContainer extends Component {
-
   constructor(props) {
     super(props)
   }
@@ -35,11 +34,13 @@ class VideosContainer extends Component {
 
   handleScroll() {
     const { category } = this.props
+
     this.props.trendingActions.fetchTopTrendingIfNeeded(category)
   }
 
   render() {
     const { category, categories, videos, trendingActions, categoriesActions, dispatch, videosStore, pushState } = this.props
+
     return (
       <div>
         <CategoriesNav
