@@ -39,7 +39,8 @@ class VideosContainer extends Component {
   }
 
   render() {
-    const { category, categories, videos, trendingActions, categoriesActions, dispatch, videosStore, pushState } = this.props
+    const { category, categories, videos, trendingActions,
+      categoriesActions, dispatch, videosStore, pushState } = this.props
 
     return (
       <div>

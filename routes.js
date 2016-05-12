@@ -7,13 +7,17 @@ import { Route } from 'react-router'
 
 export default (
   <Route component={App}>
-    <Route path="/"
+    <Route
+      path="/"
       component={VideosContainer} />
-    <Route path="/videos/:category"
+    <Route
+      path="/videos/:category"
       component={VideosContainer} />
-    <Route path="video/:videoId"
+    <Route
+      path="video/:videoId"
       component={VideoContainer} />
-    <Route path="search/:query"
+    <Route
+      path="search/:query"
       component={SearchContainer} />
   </Route>
 )

@@ -7,7 +7,7 @@ function requestSearchResults(category) {
 
   return {
     type: types.REQUEST_SEARCH,
-    category: category
+    category
   }
 }
 

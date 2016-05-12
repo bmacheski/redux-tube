@@ -7,7 +7,7 @@ import { setUrl, setNextUrl } from '../utils/url'
 function requestTrending(category) {
   return {
     type: types.REQUEST_TRENDING,
-    category: category
+    category
   }
 }
 

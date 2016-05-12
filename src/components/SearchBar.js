@@ -3,6 +3,11 @@ import MenuItem from 'material-ui/lib/menus/menu-item'
 import TextField from 'material-ui/lib/text-field'
 
 class SearchBar extends Component {
+  constructor(props) {
+    super(props)
+    this.handleSearch = this.handleSearch.bind(this)
+  }
+
   handleSearch(e) {
     const { pushState } = this.props
 
@@ -17,7 +22,7 @@ class SearchBar extends Component {
       <TextField
         hintText="Search YouTube."
         ref="search"
-        onKeyUp={this.handleSearch.bind(this)}
+        onKeyUp={this.handleSearch}
       />
     )
 

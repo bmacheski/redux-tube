@@ -22,11 +22,7 @@ export default function (InnerComponent) {
     }
 
     render () {
-      return (
-        <InnerComponent
-          {...this.props}
-        />
-      )
+      return <InnerComponent {...this.props} />
     }
   }
 
